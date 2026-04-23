@@ -10,68 +10,153 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
     }
 
     body {
-      background: linear-gradient(135deg, #eaf4ff, #f9fbff);
+      background: linear-gradient(180deg, #081120 0%, #0f172a 35%, #eaf4ff 35%, #f8fbff 100%);
       color: #1f2937;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     header {
-      background: #0f172a;
+      min-height: 100vh;
       color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 60px 20px;
+      padding: 40px 20px;
+      background:
+        linear-gradient(rgba(8,17,32,0.78), rgba(29,78,216,0.65)),
+        url('https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    }
+
+    .hero-box {
+      max-width: 850px;
+      background: rgba(255,255,255,0.08);
+      padding: 40px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 24px;
+      backdrop-filter: blur(8px);
+      animation: fadeUp 1.1s ease;
     }
 
     header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 15px;
+      font-size: 3.2rem;
+      margin-bottom: 18px;
+      line-height: 1.15;
     }
 
     header p {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 1.1rem;
+      max-width: 720px;
+      margin: 0 auto 24px;
+      font-size: 1.15rem;
+    }
+
+    .hero-buttons a {
+      display: inline-block;
+      margin: 8px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #60a5fa;
+      color: #081120;
+    }
+
+    .btn-secondary {
+      border: 2px solid white;
+      color: white;
+    }
+
+    .hero-buttons a:hover {
+      transform: translateY(-3px) scale(1.03);
     }
 
     nav {
-      background: #1d4ed8;
-      padding: 12px;
+      background: rgba(15, 23, 42, 0.92);
+      padding: 14px;
       text-align: center;
       position: sticky;
       top: 0;
+      z-index: 999;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 15px;
+      margin: 0 14px;
       font-weight: bold;
+      transition: color 0.2s ease;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: #93c5fd;
     }
 
     .container {
       width: 90%;
-      max-width: 1000px;
-      margin: 30px auto;
+      max-width: 1100px;
+      margin: 40px auto;
+    }
+
+    .intro-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .stat {
+      background: white;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      text-align: center;
+      animation: fadeUp 0.9s ease;
+    }
+
+    .stat h3 {
+      color: #1d4ed8;
+      font-size: 1.9rem;
+      margin-bottom: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
     }
 
     .card {
       background: white;
       padding: 30px;
-      margin-bottom: 25px;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      border-radius: 22px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+      animation: fadeUp 0.9s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 34px rgba(29,78,216,0.14);
+    }
+
+    .full {
+      grid-column: 1 / -1;
     }
 
     h2 {
       color: #1d4ed8;
       margin-bottom: 15px;
+      font-size: 1.7rem;
     }
 
     ul {
@@ -84,35 +169,71 @@
     }
 
     .highlight {
-      background: #dbeafe;
-      padding: 15px;
+      background: linear-gradient(135deg, #dbeafe, #eff6ff);
+      padding: 16px;
       border-left: 6px solid #2563eb;
-      border-radius: 10px;
-      margin-top: 15px;
+      border-radius: 12px;
+      margin-top: 16px;
+    }
+
+    .image-banner {
+      margin: 28px 0;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 16px 34px rgba(0,0,0,0.12);
+      animation: fadeUp 1s ease;
+    }
+
+    .image-banner img {
+      width: 100%;
+      display: block;
+      max-height: 380px;
+      object-fit: cover;
     }
 
     .cta {
-      background: #1d4ed8;
+      background: linear-gradient(135deg, #1d4ed8, #0f172a);
       color: white;
       text-align: center;
-      padding: 40px 20px;
-      border-radius: 16px;
+      padding: 55px 24px;
+      border-radius: 24px;
+      margin-top: 24px;
+      box-shadow: 0 16px 34px rgba(0,0,0,0.16);
+      animation: fadeUp 1s ease;
     }
 
     .cta h2 {
       color: white;
+      margin-bottom: 12px;
     }
 
     footer {
       text-align: center;
-      padding: 25px;
+      padding: 30px 20px;
       font-size: 0.95rem;
-      color: #475569;
+      color: #cbd5e1;
+      background: #081120;
+      margin-top: 40px;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(26px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @media (max-width: 700px) {
       header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+      }
+
+      .hero-box {
+        padding: 28px 20px;
       }
 
       nav a {
@@ -124,10 +245,16 @@
 </head>
 <body>
   <header>
-    <h1>AI Bias and Safety Protection Act</h1>
-    <p>
-      A proposed law to make artificial intelligence safer, fairer, and more accountable for everyone.
-    </p>
+    <div class="hero-box">
+      <h1>AI Bias and Safety Protection Act</h1>
+      <p>
+        A proposed law that protects people from unfair, unsafe, and unaccountable artificial intelligence while still allowing innovation to grow.
+      </p>
+      <div class="hero-buttons">
+        <a href="#problem" class="btn-primary">Learn the Problem</a>
+        <a href="#support" class="btn-secondary">Why Support It</a>
+      </div>
+    </div>
   </header>
 
   <nav>
@@ -135,73 +262,90 @@
     <a href="#rules">Rules</a>
     <a href="#benefits">Benefits</a>
     <a href="#criticisms">Criticisms</a>
-    <a href="#support">Why Support It</a>
+    <a href="#support">Support</a>
   </nav>
 
   <div class="container">
-    <section id="problem" class="card">
-      <h2>What AI Problem Does This Law Solve?</h2>
-      <p>
-        Artificial intelligence is becoming more powerful every year, but it is not always fair or safe.
-        Some AI systems can be biased, meaning they make worse decisions about certain groups of people.
-        Other systems are used without enough testing, which can lead to harmful mistakes in areas like healthcare,
-        education, hiring, and security.
-      </p>
-      <div class="highlight">
-        <strong>Main issue:</strong> AI is moving faster than the rules meant to protect people.
+    <section class="intro-stats">
+      <div class="stat">
+        <h3>Fair</h3>
+        <p>AI should treat people equally and avoid harmful bias.</p>
+      </div>
+      <div class="stat">
+        <h3>Safe</h3>
+        <p>High-risk systems should be tested before they affect lives.</p>
+      </div>
+      <div class="stat">
+        <h3>Accountable</h3>
+        <p>Companies must be responsible when their AI causes harm.</p>
       </div>
     </section>
 
-    <section id="rules" class="card">
-      <h2>Main Rules of the Law</h2>
-      <ul>
-        <li><strong>Fairness testing:</strong> Companies must test AI systems on diverse groups before using them in important decisions.</li>
-        <li><strong>Safety approval:</strong> High-risk AI, especially in healthcare and public services, must pass government safety checks.</li>
-        <li><strong>Human oversight:</strong> A real human must review major AI decisions before action is taken.</li>
-        <li><strong>Transparency:</strong> Companies must explain what an AI system does, what data it uses, and its possible risks.</li>
-        <li><strong>Accountability:</strong> If an AI system causes serious harm because of negligence, the company that made or deployed it can be held responsible.</li>
-      </ul>
-    </section>
+    <div class="image-banner">
+      <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1600&q=80" alt="Artificial intelligence and technology" />
+    </div>
 
-    <section id="benefits" class="card">
-      <h2>Who Benefits?</h2>
-      <ul>
-        <li><strong>Students and workers</strong> benefit from fairer AI decisions in schools and jobs.</li>
-        <li><strong>Patients</strong> benefit from safer medical AI tools.</li>
-        <li><strong>Families and communities</strong> benefit from stronger protections against harmful technology.</li>
-        <li><strong>Businesses</strong> benefit because trust in AI will grow when people know it is regulated properly.</li>
-        <li><strong>Government and society</strong> benefit from clearer rules and fewer harmful abuses of AI.</li>
-      </ul>
-    </section>
+    <div class="grid">
+      <section id="problem" class="card full">
+        <h2>What AI Problem Does This Law Solve?</h2>
+        <p>
+          Artificial intelligence is becoming more powerful, but it is not always fair or safe. Some systems can be biased,
+          meaning they may make worse decisions for certain groups of people. Others are used too quickly without enough testing,
+          which can cause serious harm in healthcare, education, hiring, and public safety.
+        </p>
+        <div class="highlight">
+          <strong>Main issue:</strong> AI is advancing faster than the laws meant to protect people from its mistakes.
+        </div>
+      </section>
 
-    <section id="criticisms" class="card">
-      <h2>Possible Criticisms</h2>
-      <ul>
-        <li>Some people may say the law could slow down innovation.</li>
-        <li>Technology companies may argue that the rules are expensive to follow.</li>
-        <li>Others may say it is difficult to enforce because AI develops so quickly.</li>
-      </ul>
-      <p>
-        Even so, protecting people should matter more than letting unsafe technology spread without limits.
-      </p>
-    </section>
+      <section id="rules" class="card">
+        <h2>Main Rules of the Law</h2>
+        <ul>
+          <li><strong>Fairness testing:</strong> AI must be tested on diverse groups before being used for important decisions.</li>
+          <li><strong>Safety approval:</strong> High-risk AI must pass official safety reviews.</li>
+          <li><strong>Human oversight:</strong> A person must review major AI decisions before action is taken.</li>
+          <li><strong>Transparency:</strong> Companies must explain what the AI does and what data it uses.</li>
+          <li><strong>Accountability:</strong> If AI causes serious harm due to negligence, the company can be held responsible.</li>
+        </ul>
+      </section>
 
-    <section id="support" class="card">
-      <h2>Why Voters Should Support It</h2>
-      <p>
-        Voters should support the AI Bias and Safety Protection Act because it protects people without banning innovation.
-        The law still allows AI to grow, but it sets rules to make sure that growth is responsible. It helps prevent unfair
-        treatment, dangerous mistakes, and unaccountable companies. Technology should serve people, not put them at risk.
-      </p>
-      <div class="highlight">
-        <strong>Simple message:</strong> Safer AI, fairer decisions, stronger protection.
-      </div>
-    </section>
+      <section id="benefits" class="card">
+        <h2>Who Benefits?</h2>
+        <ul>
+          <li>Students and workers</li>
+          <li>Patients and families</li>
+          <li>Communities affected by unfair technology</li>
+          <li>Businesses that want people to trust AI</li>
+          <li>Society as a whole</li>
+        </ul>
+      </section>
+
+      <section id="criticisms" class="card">
+        <h2>Possible Criticisms</h2>
+        <ul>
+          <li>Some people may say it slows down innovation.</li>
+          <li>Companies may say the rules are too expensive.</li>
+          <li>Others may argue that AI changes too fast to regulate easily.</li>
+        </ul>
+      </section>
+
+      <section id="support" class="card">
+        <h2>Why Voters Should Support It</h2>
+        <p>
+          Voters should support this law because it protects people without stopping progress. It allows AI to continue growing,
+          but it sets clear rules so that growth is responsible. This law reduces unfair treatment, prevents dangerous mistakes,
+          and makes companies answer for the systems they create.
+        </p>
+        <div class="highlight">
+          <strong>Simple message:</strong> Safer AI. Fairer decisions. Stronger protection.
+        </div>
+      </section>
+    </div>
 
     <section class="cta">
       <h2>Support Responsible AI</h2>
       <p>
-        The future of AI should be smart, fair, and safe. This law helps make sure innovation benefits everyone.
+        The future of technology should help people, not harm them. The AI Bias and Safety Protection Act makes innovation smarter, safer, and fairer for everyone.
       </p>
     </section>
   </div>
